@@ -1,0 +1,18 @@
+{% extends "sorl/home.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <div class="form">
+    <form method="post">
+      {% csrf_token %}
+        <legend class="border-bottom mb-4">Join Today</legend>
+        {{ form|crispy }}
+      <input type="submit" name="" value="submit">
+    </form>
+  </div>
+
+    <small>
+      already have an account?<a href="{% url 'login' %}">Login</a>
+    </small>
+{% endblock %}

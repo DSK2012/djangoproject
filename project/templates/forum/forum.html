@@ -1,0 +1,22 @@
+{% extends "sorl/home.html" %}
+{% load staticfiles%}
+{% block content %}
+  {% if post %}
+    it is in if
+    {% for p in post %}
+      <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ p.Author }}</a>
+            <small class="text-muted">{{ p.Date|date:"F d, Y" }}</small>
+          </div>
+          <h2><a class="article-title" href="#">{{ p.Title }}</a></h2>
+          <p class="article-content">{{ p.Question }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  {% else %}
+    doesnt print
+  {% endif %}
+{% endblock%}
